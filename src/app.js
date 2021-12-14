@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props)
     this.toggleTheme = this.toggleTheme.bind(this);
     this.state = {
-      theme: themes.light
+      theme: themes.light,
+      toggleTheme: this.toggleTheme
     };
   }
 
@@ -19,10 +20,8 @@ class App extends React.Component {
   render (){
     return (
       <>
-        <ThemeContext.Provider value={this.state.theme}>
-          <ToolBar
-            onThemeChange={this.toggleTheme}
-          />
+        <ThemeContext.Provider value={this.state}>
+          <ToolBar/>
         </ThemeContext.Provider>
         <ThemedButton>
           Always white
